@@ -1,0 +1,2 @@
+import thinkdsp
+thinkdsp.CosSignal()
