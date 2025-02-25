@@ -1,13 +1,16 @@
 name: sync2gitee
 
 on:
+
+  schedule:
+      - cron:'0 6 * * *'
+
   push:
     branches:
       - main
       - master
       - dev
-  schedule:
-      - cron:'0 6 * * *'
+ 
 
 jobs:
   build:
