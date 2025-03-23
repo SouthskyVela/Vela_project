@@ -1,0 +1,7 @@
+{signal:[
+    {name:"CLK",wave:'01010101010'},
+    {name: 'Q_1',wave:'0.1.0.1.0.1'},
+    {name: 'Q_3',wave:'0..1.0.1.0.'},
+],
+    config: { "hscale": 1 }
+}
