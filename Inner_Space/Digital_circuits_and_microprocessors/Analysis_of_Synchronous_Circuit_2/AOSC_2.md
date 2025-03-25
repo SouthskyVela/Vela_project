@@ -1,14 +1,19 @@
 # 易得该电路为Mealy型号
+
 ## 状态转移函数
- Q<sup>n+1</sup>=$J\cdot \overline{Q_{}^{n}} +\overline{K} \cdot Q_{}^{n}$   |(原始JK触发器)
+
+ Q `<sup>`n+1 `</sup>`=$J\cdot \overline{Q_{}^{n}} +\overline{K} \cdot Q_{}^{n}$   |(原始JK触发器)
 
 $Q_{0}^{n+1}=X\cdot \overline{Q_{0}^{n}}+\overline{X} \cdot Q_{0}^{n}$
 
 $Q_{1}^{n+1}=Q_{0}\cdot \overline{Q_{1}^{n}}+{X} \cdot Q_{1}^{n}$
+
 ## 输出函数
+
 $Z=Q_{1} \cdot \overline{X} $
 
 ## 状态表
+
 <table>
   <thead>
     <tr>
@@ -44,8 +49,10 @@ $Z=Q_{1} \cdot \overline{X} $
   </tbody>
 </table>
 
+
+
 ## 状态图
- 
+
 ```mermaid
 graph TD;
    
@@ -64,5 +71,8 @@ graph TD;
     style S fill:#ccf,stroke:#333,stroke-width:4px
 
 ```
+
 ## 电路功能
+
  ??????????
+

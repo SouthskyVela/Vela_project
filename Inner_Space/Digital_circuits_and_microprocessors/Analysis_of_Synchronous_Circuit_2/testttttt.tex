@@ -1,0 +1,27 @@
+\usepackage{xltxtra}
+\usepackage{texnames}
+\usepackage{mflogo}
+\section{控制字体宽度}
+\subsection{控制空格}
+a\\cosh \deg quad b\par              %1em（当前字体中M的宽度）
+a\qquad b\par			  %2em
+a\,b a\thinspace b\par    %约为1/6em
+a\enspace b\par			  %0.5em
+a\ \ \ \ b\par            %4个空格
+a~b\par                   %硬空格（不能分割的空格）
+
+\subsection{根据参数产生指定间隔}
+a\kern 1pc b\par
+a\kern -1em b\par     %b距离a-1em,相当于把ab反向输出为ba
+a\hskip 1em b\par
+a\hspace{35pt}b\par
+
+\subsection{根据指定字符的宽度来产生空白}
+a\hphantom{1}b\par
+a\hphantom{12}b\par
+a\hphantom{123}b\par
+a\hphantom{1234}b\par
+a\hphantom{12345}b\par
+
+\subsection{弹性长度空白}
+a\hfill b\par   %弹性空白可以让两边的字符正好到达纸张边界
