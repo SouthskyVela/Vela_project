@@ -1,0 +1,15 @@
+实验内容1：
+fren=4.87khz
+Vpp=6.37V
+
+实验内容2：
+fren=1.994khz
+Vpp=6.97V
+
+实验内容3：
+三角波：
+	fren=2.087kHZ
+	Vpp=4.67V
+方波:
+	fren=2.088kHz
+	Vpp=8.23V
