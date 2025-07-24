@@ -1,0 +1,155 @@
+2025-07-19 18:18:48   *** Warning ***
+
+                      Adaptive mesh refinement: No valid adaptation criterion defined. No adaptive
+                      mesh refinement will be performed.
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:18:48   The following farfield monitor(s) have been adjusted to model box [-606.632,
+                      606.632, -606.632, 606.632, -36.9543, 179.872]:
+                        farfield (f=1.42).
+                      For further information please check the page "Special Solver Parameters -
+                      Solver" in the Online Help.
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:18:48   According to the selected features the <Time Domain Solver (HEX)> will be
+                      started.
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:18:48   
+                      Solver started at: 2025-07-19 18:18:48 +0800
+
+                        Module:  Time Domain: S-Parameter (Win 64)
+                        Version: 2025.2 Release from 2024-12-16 (change 1361105)
+
+2025-07-19 18:18:48   
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:18:48   
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:18:48   ======================================================================
+                       Plane wave stimulation
+                      ======================================================================
+
+
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:18:48   Units settings: 
+
+                        Dimensions: mm
+                        Frequency:  GHz
+                        Time:       ns
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:18:48   The dispersive material update [Automatic] will be performed using the "Standard" update schema
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:19:37   Mesh statistics:
+
+                         Hexahedral mesh type: Perfect Boundary Approximation (PBA)
+                            Version: default
+
+                         Parallelization type: domain decomposition
+                            Number of parallel working threads: 8
+                            Number of calculation domains used: 32
+
+                         Used point accuracy enhancement value: 0.00%.
+                         Acceleration mode: CPU
+                         PBA fill limit: 85.00% (inverse)
+
+2025-07-19 18:19:39   Boundary conditions: 
+
+                        YZsymmetry: none
+                        XZsymmetry: none
+                        XYsymmetry: none
+
+                        Xmin: expanded open, 4 Layer, depth 50.2169 mm
+                        Xmax: expanded open, 4 Layer, depth 50.2169 mm
+
+                        Ymin: expanded open, 4 Layer, depth 50.2169 mm
+                        Ymax: expanded open, 4 Layer, depth 50.2169 mm
+
+                        Zmin: expanded open, 4 Layer, depth 53.553 mm
+                        Zmax: expanded open, 4 Layer, depth 56.0353 mm
+
+                        PML-Type: Convolution PML
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:19:39   Frequency settings: 
+
+                        Fmin:         1.41
+                        Fmax:         1.43
+                        Nfsteps(lin): 1001
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:19:40   Field update statistics:
+
+                        Number of components in total: 	8738825
+                        Number of TST and special elements:	117534
+
+                      Subcycling state:      			Automatically deactivated
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:28:58   
+                      --------------------------------------------------------------------------------
+2025-07-19 18:28:58   Steady state energy criterion met, solver finished successfully.
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:28:58   Frequency domain results normalized to default signal.
+
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:28:58   
+                        ----------------------------------------------------------------------------
+                                            Peak memory used (kB)         Free physical memory (kB) 
+                                                                          At begin     Minimum      
+                        ----------------------------------------------------------------------------
+                        CAD preparation     1046084                       27841972     26863028     
+                        Matrices calc.      662109                        27835937     27278320     
+                        Solver run total    470688                        27881116     26876780     
+                        ----------------------------------------------------------------------------
+
+                      --------------------------------------------------------------------------------
+                      Solver Statistics:
+
+                        Hardware:
+                           Computer name:                 	uni-navigator 
+
+                           Number of CPU threads:               8
+                           Hardware info:                  	Hardware Accelerator Device not activated
+
+                        Number of mesh cells:             	1421952
+                        Excitation duration:              	3.55454875e+002 ns 
+                        Calculation time for excitation:  	0 	s
+                        Number of calculated pulse widths:	1.00042 
+                        Steady state accuracy limit:      	-40	dB 
+                        Simulated number of time steps:   	51183 
+                        Maximum number of time steps:     	1023232 
+                        Time step width:
+                           without subcycles:             	6.947684518e-003 ns
+                           used:                          	6.947684518e-003 ns
+
+                        CAD preparation time:             	16     	s
+                        Matrix calculation time:          	33 	s
+                        Solver setup time:                	2 	s
+                        Solver loop time:                 	556 	s
+                        Solver post-processing time:      	1 	s
+                                                          	------------
+                        Total solver time:                	608 	s  ( = 0 h, 10 m, 8 s )
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:28:58   
+                        Total solver time (all cycles):      	608    	s  ( = 0 h, 10 m, 8 s )
+                        Solver initialization and clean-up:  	1      	s
+                                                             	------------
+                        Total simulation time:               	609    	s  ( = 0 h, 10 m, 9 s )
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:28:58   Solver finished at: 2025-07-19 18:28:58 +0800
+
+
+
+                      ------------------------------------------------------------------------------
+2025-07-19 18:28:59   Creating parametric 1D results for Run ID 1
+
+                      ------------------------------------------------------------------------------

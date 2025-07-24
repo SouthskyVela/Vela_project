@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CSTAuxiliaryGeometry version="20170928">
+  <Objects>
+    <Object name="Components\born_01_p_1/component1:solid1" id="1"/>
+    <Object name="Components\reflector_01_p_1/component1:solid1_1" id="2"/>
+    <Object name="Components\reflector_01_p_1/component1:solid1_2_1" id="3"/>
+  </Objects>
+  <Materials/>
+  <Groups>
+    <Group name="Isolators" ID="1"/>
+    <Group name="Unconsidered" ID="1">
+      <Item name="Components\born_01_p_1/component1:solid1" id="1"/>
+      <Item name="Components\reflector_01_p_1/component1:solid1_1" id="2"/>
+      <Item name="Components\reflector_01_p_1/component1:solid1_2_1" id="3"/>
+    </Group>
+  </Groups>
+</CSTAuxiliaryGeometry>

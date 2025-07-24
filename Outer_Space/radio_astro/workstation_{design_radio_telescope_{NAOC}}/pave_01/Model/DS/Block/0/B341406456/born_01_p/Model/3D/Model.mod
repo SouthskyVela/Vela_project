@@ -1,0 +1,406 @@
+'# MWS Version: Version 2025.2 - Dec 16 2024 - ACIS 34.0.1 -
+
+'# length = mm
+'# frequency = GHz
+'# time = ns
+'# frequency range: fmin = 1.41 fmax = 1.43
+'# created = '[VERSION]2025.2|34.0.1|20241216[/VERSION]
+
+
+'@ use template: Antenna - Waveguide_2.cfg
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+'set the units
+With Units
+    .SetUnit "Length", "mm"
+    .SetUnit "Frequency", "GHz"
+    .SetUnit "Voltage", "V"
+    .SetUnit "Resistance", "Ohm"
+    .SetUnit "Inductance", "nH"
+    .SetUnit "Temperature",  "degC"
+    .SetUnit "Time", "ns"
+    .SetUnit "Current", "A"
+    .SetUnit "Conductance", "S"
+    .SetUnit "Capacitance", "pF"
+End With
+
+ThermalSolver.AmbientTemperature "0"
+
+'----------------------------------------------------------------------------
+
+Plot.DrawBox True
+
+With Background
+     .Type "Normal"
+     .Epsilon "1.0"
+     .Mu "1.0"
+     .XminSpace "0.0"
+     .XmaxSpace "0.0"
+     .YminSpace "0.0"
+     .YmaxSpace "0.0"
+     .ZminSpace "0.0"
+     .ZmaxSpace "0.0"
+End With
+
+With Boundary
+     .Xmin "expanded open"
+     .Xmax "expanded open"
+     .Ymin "expanded open"
+     .Ymax "expanded open"
+     .Zmin "expanded open"
+     .Zmax "expanded open"
+     .Xsymmetry "none"
+     .Ysymmetry "none"
+     .Zsymmetry "none"
+End With
+
+' switch on FD-TET setting for accurate farfields
+
+FDSolver.ExtrudeOpenBC "True"
+
+Mesh.FPBAAvoidNonRegUnite "True"
+Mesh.ConsiderSpaceForLowerMeshLimit "False"
+Mesh.MinimumStepNumber "5"
+
+With MeshSettings
+     .SetMeshType "Hex"
+     .Set "RatioLimitGeometry", "20"
+End With
+
+With MeshSettings
+     .SetMeshType "HexTLM"
+     .Set "RatioLimitGeometry", "20"
+End With
+
+PostProcess1D.ActivateOperation "vswr", "true"
+PostProcess1D.ActivateOperation "yz-matrices", "true"
+
+With FarfieldPlot
+	.ClearCuts ' lateral=phi, polar=theta
+	.AddCut "lateral", "0", "1"
+	.AddCut "lateral", "90", "1"
+	.AddCut "polar", "90", "1"
+End With
+
+'----------------------------------------------------------------------------
+
+With MeshSettings
+     .SetMeshType "Hex"
+     .Set "Version", 1%
+End With
+
+With Mesh
+     .MeshType "PBA"
+End With
+
+'set the solver type
+ChangeSolverType("HF Time Domain")
+
+'----------------------------------------------------------------------------
+
+'@ new component: component1
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Component.New "component1"
+
+'@ define cylinder: component1:solid1
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+With Cylinder 
+     .Reset 
+     .Name "solid1" 
+     .Component "component1" 
+     .Material "PEC" 
+     .OuterRadius "40.4" 
+     .InnerRadius "0" 
+     .Axis "z" 
+     .Zrange "0", "315" 
+     .Xcenter "-0" 
+     .Ycenter "-0" 
+     .Segments "0" 
+     .Create 
+End With
+
+'@ pick face
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Pick.PickFaceFromId "component1:solid1", "3"
+
+'@ define extrude: component1:solid2
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+With Extrude 
+     .Reset 
+     .Name "solid2" 
+     .Component "component1" 
+     .Material "PEC" 
+     .Mode "Picks" 
+     .Height "85.0" 
+     .Twist "0.0" 
+     .Taper "45.0" 
+     .UsePicksForHeight "False" 
+     .DeleteBaseFaceSolid "False" 
+     .KeepMaterials "False" 
+     .ClearPickedFace "True" 
+     .Create 
+End With
+
+'@ pick face
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Pick.PickFaceFromId "component1:solid2", "2"
+
+'@ pick face
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Pick.PickFaceFromId "component1:solid1", "1"
+
+'@ unpick face
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Pick.UnpickFaceFromId "component1:solid1", "1"
+
+'@ unpick face
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Pick.UnpickFaceFromId "component1:solid2", "2"
+
+'@ boolean add shapes: component1:solid1, component1:solid2
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Solid.Add "component1:solid1", "component1:solid2"
+
+'@ pick face
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Pick.PickFaceFromId "component1:solid1", "2"
+
+'@ pick face
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Pick.PickFaceFromId "component1:solid1", "4"
+
+'@ delete shape: component1:solid1
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Solid.Delete "component1:solid1"
+
+'@ define cylinder: component1:solid1
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+With Cylinder 
+     .Reset 
+     .Name "solid1" 
+     .Component "component1" 
+     .Material "PEC" 
+     .OuterRadius "43" 
+     .InnerRadius "0" 
+     .Axis "z" 
+     .Zrange "0", "100" 
+     .Xcenter "-0" 
+     .Ycenter "0" 
+     .Segments "0" 
+     .Create 
+End With
+
+'@ pick face
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Pick.PickFaceFromId "component1:solid1", "3"
+
+'@ define extrude: component1:solid2
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+With Extrude 
+     .Reset 
+     .Name "solid2" 
+     .Component "component1" 
+     .Material "PEC" 
+     .Mode "Picks" 
+     .Height "80.0" 
+     .Twist "0.0" 
+     .Taper "41.0" 
+     .UsePicksForHeight "False" 
+     .DeleteBaseFaceSolid "False" 
+     .KeepMaterials "False" 
+     .ClearPickedFace "True" 
+     .Create 
+End With
+
+'@ boolean add shapes: component1:solid1, component1:solid2
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Solid.Add "component1:solid1", "component1:solid2"
+
+'@ pick face
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Pick.PickFaceFromId "component1:solid1", "2"
+
+'@ pick face
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Pick.PickFaceFromId "component1:solid1", "4"
+
+'@ shell object: component1:solid1
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Solid.ShellAdvanced "component1:solid1", "Outside", "3.0", "True"
+
+'@ define frequency range
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Solver.FrequencyRange "1.41", "1.43"
+
+'@ pick face
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Pick.PickFaceFromId "component1:solid1", "9"
+
+'@ define port: 1
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+With Port 
+     .Reset 
+     .PortNumber "1" 
+     .Label ""
+     .Folder ""
+     .NumberOfModes "1"
+     .AdjustPolarization "False"
+     .PolarizationAngle "0.0"
+     .ReferencePlaneDistance "0"
+     .TextSize "50"
+     .TextMaxLimit "1"
+     .Coordinates "Picks"
+     .Orientation "positive"
+     .PortOnBound "False"
+     .ClipPickedPortToBound "False"
+     .Xrange "-46", "46"
+     .Yrange "-46", "46"
+     .Zrange "0", "0"
+     .XrangeAdd "0.0", "0.0"
+     .YrangeAdd "0.0", "0.0"
+     .ZrangeAdd "0.0", "0.0"
+     .SingleEnded "False"
+     .WaveguideMonitor "False"
+     .Create 
+End With
+
+'@ define farfield monitor: farfield (f=1.42)
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+With Monitor 
+     .Reset 
+     .Name "farfield (f=1.42)" 
+     .Domain "Frequency" 
+     .FieldType "Farfield" 
+     .MonitorValue "1.42" 
+     .ExportFarfieldSource "False" 
+     .UseSubvolume "False" 
+     .Coordinates "Structure" 
+     .SetSubvolume "-116.51797800534", "116.51797800534", "-116.51797800534", "116.51797800534", "0", "180" 
+     .SetSubvolumeOffset "10", "10", "10", "10", "10", "10" 
+     .SetSubvolumeInflateWithOffset "False" 
+     .SetSubvolumeOffsetType "FractionOfWavelength" 
+     .EnableNearfieldCalculation "True" 
+     .Create 
+End With
+
+'@ define time domain solver parameters
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+Mesh.SetCreator "High Frequency" 
+
+With Solver 
+     .Method "Hexahedral"
+     .CalculationType "TD-S"
+     .StimulationPort "All"
+     .StimulationMode "All"
+     .SteadyStateLimit "-30"
+     .MeshAdaption "False"
+     .AutoNormImpedance "False"
+     .NormingImpedance "50"
+     .CalculateModesOnly "False"
+     .SParaSymmetry "False"
+     .StoreTDResultsInCache  "False"
+     .RunDiscretizerOnly "False"
+     .FullDeembedding "False"
+     .SuperimposePLWExcitation "False"
+     .UseSensitivityAnalysis "False"
+End With
+
+'@ farfield plot options
+
+'[VERSION]2025.2|34.0.1|20241216[/VERSION]
+With FarfieldPlot 
+     .Plottype "3D" 
+     .Vary "angle1" 
+     .Theta "90" 
+     .Phi "90" 
+     .Step "5" 
+     .Step2 "5" 
+     .SetLockSteps "True" 
+     .SetPlotRangeOnly "False" 
+     .SetThetaStart "0" 
+     .SetThetaEnd "180" 
+     .SetPhiStart "0" 
+     .SetPhiEnd "360" 
+     .SetTheta360 "False" 
+     .SymmetricRange "False" 
+     .SetTimeDomainFF "False" 
+     .SetFrequency "1.42" 
+     .SetTime "0" 
+     .SetColorByValue "True" 
+     .DrawStepLines "False" 
+     .DrawIsoLongitudeLatitudeLines "False" 
+     .ShowStructure "False" 
+     .ShowStructureProfile "False" 
+     .SetStructureTransparent "False" 
+     .SetFarfieldTransparent "False" 
+     .AspectRatio "Free" 
+     .ShowGridlines "True" 
+     .InvertAxes "False", "False" 
+     .SetSpecials "enablepolarextralines" 
+     .SetPlotMode "Gain" 
+     .Distance "1" 
+     .UseFarfieldApproximation "True" 
+     .IncludeUnitCellSidewalls "True" 
+     .SetScaleLinear "False" 
+     .SetLogRange "40" 
+     .SetLogNorm "0" 
+     .DBUnit "0" 
+     .SetMaxReferenceMode "abs" 
+     .EnableFixPlotMaximum "False" 
+     .SetFixPlotMaximumValue "1.0" 
+     .SetInverseAxialRatio "False" 
+     .SetAxesType "user" 
+     .SetAntennaType "unknown" 
+     .Phistart "1.000000e+00", "0.000000e+00", "0.000000e+00" 
+     .Thetastart "0.000000e+00", "0.000000e+00", "1.000000e+00" 
+     .PolarizationVector "0.000000e+00", "1.000000e+00", "0.000000e+00" 
+     .SetCoordinateSystemType "spherical" 
+     .SetAutomaticCoordinateSystem "True" 
+     .SetPolarizationType "Linear" 
+     .SlantAngle 0.000000e+00 
+     .Origin "bbox" 
+     .Userorigin "0.000000e+00", "0.000000e+00", "0.000000e+00" 
+     .SetUserDecouplingPlane "False" 
+     .UseDecouplingPlane "False" 
+     .DecouplingPlaneAxis "X" 
+     .DecouplingPlanePosition "0.000000e+00" 
+     .LossyGround "False" 
+     .GroundEpsilon "1" 
+     .GroundKappa "0" 
+     .EnablePhaseCenterCalculation "False" 
+     .SetPhaseCenterAngularLimit "3.000000e+01" 
+     .SetPhaseCenterComponent "boresight" 
+     .SetPhaseCenterPlane "both" 
+     .ShowPhaseCenter "True" 
+     .ClearCuts 
+     .AddCut "lateral", "0", "1"  
+     .AddCut "lateral", "90", "1"  
+     .AddCut "polar", "90", "1"  
+
+     .StoreSettings
+End With
+

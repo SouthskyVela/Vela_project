@@ -1,0 +1,17 @@
+20110628
+<GROUP>Diagnostic Report
+<GROUPTYPE>4
+<GROUP>Excluded from Bounding Box
+<GROUPTYPE>1
+<GROUP>Excluded from Simulation
+<GROUPTYPE>0
+<GROUP>born_01_p_1
+<GROUPTYPE>2
+<ENTITY>born_01_p_1/component1:solid1
+<TYPE>SOLID
+<GROUP>reflector_01_p_1
+<GROUPTYPE>2
+<ENTITY>reflector_01_p_1/component1:solid1_1
+<TYPE>SOLID
+<ENTITY>reflector_01_p_1/component1:solid1_2_1
+<TYPE>SOLID

@@ -1,0 +1,6 @@
+ParaControl_AMD64-1xN @ uni-navigator:  ==================================================================================================
+                                        36961.00 ms |          | SV-crop-all | Outside MCalcResultIdentification |  62.12 MB |   0.0000 MB
+                                        37149.00 ms |  --> 3rd | SV-crop-all |                        All meshes | 173.36 MB | 111.2474 MB
+                                        37151.00 ms | --> peak | SV-crop-all |                        All meshes | 173.37 MB |   0.0082 MB
+                                        37177.00 ms |  --> 2nd | SV-crop-all | Outside MCalcResultIdentification | 173.37 MB |   0.0000 MB
+                                        ==================================================================================================

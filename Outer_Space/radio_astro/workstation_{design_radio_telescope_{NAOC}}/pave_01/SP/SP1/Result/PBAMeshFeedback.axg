@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CSTAuxiliaryGeometry version="20170928">
+  <Objects>
+    <Object name="Components\born_01_p_1/component1:solid1" id="3">
+      <LineSet points="107.101868 -34.4700394 180 107.101868 -32.7248383 180" stripped="0" material="$InfoMaterial$"/>
+    </Object>
+    <Object name="Components\reflector_01_p_1/component1:solid1_2_1" id="4">
+      <LineSet points="328.383392 -503.098358 320.631592 330.059692 -503.098358 320.631592 503.098358 -323.138153 320.631592 505.423553 -323.138153 320.631592 364.667419 475.41217 320.631592 365.911133 475.41217 320.631592 -516.941467 302.373505 320.631592 -516.941467 304.482422 320.631592" stripped="0" material="$InfoMaterial$"/>
+    </Object>
+  </Objects>
+  <Materials>
+    <Material name="$49bce1">
+      <Drawstyle color="0.286274523 0.737254918 0.882352948" transparency="0" linestrength="3"/>
+    </Material>
+  </Materials>
+  <Groups>
+    <Group name="Metal Filled" ID="1" selectiontype="main">
+      <Item name="Components\born_01_p_1/component1:solid1" id="3"/>
+      <Item name="Components\reflector_01_p_1/component1:solid1_2_1" id="4"/>
+    </Group>
+  </Groups>
+</CSTAuxiliaryGeometry>

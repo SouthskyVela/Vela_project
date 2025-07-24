@@ -1,0 +1,4 @@
+Solver_HF_TD_AMD64 @ uni-navigator:  ========================================================================================================
+                                     3448.00 ms |  --> 2nd | SV-crop-all | Outside MCalcResultIdentification (Solver) | 662.21 MB | 0.0000 MB
+                                     3660.00 ms | --> peak | SV-crop-all | Outside MCalcResultIdentification (Solver) | 662.83 MB | 0.6226 MB
+                                     ========================================================================================================
